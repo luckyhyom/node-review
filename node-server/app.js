@@ -4,6 +4,7 @@
 const http = require('http');
 
 // 배열도 가능
+// DB가 아닌 메모리에 데이터를 저장한다.
 const obj = [{name:"hyomin",age:27},{name:"hyunah",age:29}];
 
 const server = http.createServer((req,res)=>{
