@@ -8,3 +8,18 @@ function fn(a = 1, b = 2, c = 3, d = 4) {
 }
 
 fn(undefined, false, null);
+
+function fn2(a = 1, b = a === 2, c) {
+  console.log(a, b);
+}
+
+fn2(1);
+
+function notCalled() {
+  throw new Error('it is not called');
+}
+function fn3(a = notCalled()) {
+  console.log(a);
+}
+
+fn3();
