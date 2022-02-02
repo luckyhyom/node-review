@@ -140,3 +140,5 @@ class Binding2 {
     console.log(this.name, this.age);
   }
 }
+
+// new.targer, super, arguments 모두 바인딩하지 않음
