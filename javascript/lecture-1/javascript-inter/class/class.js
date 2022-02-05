@@ -48,3 +48,22 @@ const slide4 = new Slide();
 
 slide3.next();
 slide4.next();
+
+
+for (let i = 0; i < 5; i++) {
+  /**
+   * setTimeout은 i를 찾기위해 내부와 외부를 검사한다.
+   * var는 블럭스코프에 갇히지 않고 전역으로 등록된다.
+   * 하지만 let은 블럭스코프에 갇히기 때문에 i를 외부에서 참조하려면 지역변수 i를 기억하고 있어야한다.
+   * 첫번째 for에서 i는 0이라는 주소를 가리킨다. (그 순간의 i를 기억한다. => 스냅)
+   * 
+   */
+  // 
+  // 하지만 let은 블럭스코프에 갇혀 전역에 등록되지 못하므로 setTimeout은 
+  function a() {
+    console.log(i);
+    setTimeout(() => {
+    }, 0);
+  }
+  a();
+}
