@@ -17,16 +17,21 @@ const products = [
   },
 ]
 
+/**
+ * property가 아닌 함수를 받아서 반복문 활용성 높아짐
+ * 인자와 반환값으로 상호작용 함 (외부에 직접적으로 영향을 끼치지 않음)
+ * 추상화 (코드 중복을 줄임)
+ */
+
 const names = [];
 for (const p of products) {
   names.push(p.name)
 };
+const prices = [];
+for (const p of products) {
+  prices.push(p.price)
+};
 
-/**
- * property가 아닌 함수를 받아서 반복문 활용성 높아짐
- * 인자와 반환값으로 상호작용 함 (외부에 직접적으로 영향을 끼치지 않음)
- * 추상화
- */
 const map = (f, iter) => {
   const res = [];
   for (const a of iter) {
@@ -34,9 +39,8 @@ const map = (f, iter) => {
   }
   return res;
 }
-
 const names2 = map(p => p.name, products);
-const names3 = products.map(p => p.name);
-console.log(names);
-console.log(names2);
-console.log(names3);
+const prices2 = map(p => p.price, products);
+const descriptions = map(p => p.description, products);
+const froms = map(p => p.from, products);
+const expiry_dates = map(p => p.expiry_date, products);
