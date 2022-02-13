@@ -1,18 +1,19 @@
 class A {
   hi() {
-    console.log(this);
+    console.dir(this);
   }
 }
 
 class B {
   hi = () => {
-    console.log(this);
+    console.dir(this);
   }
 }
 
-console.log('----A----');
-console.dir(A);
-console.dir(new A());
-console.log('----B----');
-console.dir(B);
-console.dir(new B());
+const a = new A();
+const aa = new A();
+console.log(a.hi === aa.hi); // true
+
+const b = new B();
+const bb = new B();
+console.log(b.hi === bb.hi); // false
